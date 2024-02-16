@@ -54,6 +54,7 @@ body{
     font-size: 3rem;
     margin-left: 2rem;
     font-style: italic;
+
 }
 .nav .icon span{
     color: rgb(98, 68, 29);
@@ -73,6 +74,7 @@ body{
     color: black;
     font-size: 1.5rem;
     padding: 9px 1rem 0px 1rem;
+
 }
 .nav .main-nav a:hover{
     transform: scaleX(1.02);
@@ -84,24 +86,24 @@ body{
 }
 /* extra */
 .nav .extra{
-    display: flex;
+    display: none;
     text-decoration: none;
     color: black;
-    font-size: 1.5rem;
-    padding: 2px 1rem 0px 1rem;
+    padding: 0px 1rem 0px 1rem;
 }
-.nav .extra .button-menu{
+.nav .extra #button-menu{
     background-color: lightgrey;
     border: 1px solid rgb(98, 68, 29);
     border-radius: 8px;
     padding: 8px 10px;
 }
-.nav .extra .button-menu:hover{
+.nav .extra #button-menu:hover{
     background-color: rgb(98, 68, 29);
     color: lightgrey;
     transition-duration: 0.5s;
+    cursor: pointer;
 }
-.nav .extra .button-menu:not(:hover){
+.nav .extra #button-menu:not(:hover){
     transition-duration: 0.5s;
 }
 
@@ -167,7 +169,8 @@ body{
 }
 .my-portofolio .grid{
     padding: 10px 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(98, 68, 29);
+    border-radius: 5px;
     height: auto; 
 }
 .my-portofolio .grid .grid-img{
@@ -175,6 +178,7 @@ body{
 }
 .my-portofolio .grid .grid-img img{
     margin: 0px auto;
+    border-radius: 5px;
     height: 200px;
     width: 150px;
 }
@@ -259,18 +263,30 @@ body{
 
 
 /* media query */
-
-.nav .mobile{
-    display: none;
-}
 @media only screen and (max-width: 600px){
     html{
         font-size: 60%;
     }
-    .nav .mobile{
+    .nav .icon{
+        padding-top: 5px;
+    }
+    .nav .extra{
         display: inline-block;
     }
-    .nav .desktop{
+    /* buat side-nav keluar dari layar */
+    .nav .side-nav{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 25rem;
+        height: 100vh;
+        line-height: 5rem;
         display: none;
+    }
+    /* buat side-nav muncul ketika js button-menu diklik */
+    .nav .button-menu-active{
+        right: 0;
+        display: block;
     }
 }
